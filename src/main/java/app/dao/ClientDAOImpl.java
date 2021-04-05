@@ -27,13 +27,12 @@ public class ClientDAOImpl implements ClientDAO {
     private final String SELECT_SORT_ALL_CLIENT = "SELECT * FROM clients order by last_name;";
 
 
-
     @Override
     public boolean add(Client client) throws SQLException {
         connection = ConnectDatabase.getConnection();
         preparedStatement = connection.prepareStatement(INSERT_CLIENT_SQL);
-        preparedStatement.setString(1,client.getLastName());
-        preparedStatement.setString(2,client.getName());
+        preparedStatement.setString(1, client.getLastName());
+        preparedStatement.setString(2, client.getName());
         preparedStatement.setString(3, client.getMiddleName());
         preparedStatement.setString(4, client.getEmail());
         preparedStatement.setString(5, client.getTelNumber());
@@ -52,7 +51,7 @@ public class ClientDAOImpl implements ClientDAO {
         preparedStatement.setString(3, client.getMiddleName());
         preparedStatement.setString(4, client.getEmail());
         preparedStatement.setString(5, client.getTelNumber());
-        preparedStatement.setInt(6,client.getId());
+        preparedStatement.setInt(6, client.getId());
         query = preparedStatement.execute();
         ConnectDatabase.closeConnection();
 
@@ -63,7 +62,7 @@ public class ClientDAOImpl implements ClientDAO {
     public boolean delete(int id) throws SQLException {
         connection = ConnectDatabase.getConnection();
         preparedStatement = connection.prepareStatement(DELETE_CLIENT_SQL);
-        preparedStatement.setInt(1,id);
+        preparedStatement.setInt(1, id);
         query = preparedStatement.execute();
         ConnectDatabase.closeConnection();
 
@@ -113,7 +112,7 @@ public class ClientDAOImpl implements ClientDAO {
     public Client getClientById(int id) throws SQLException {
         connection = ConnectDatabase.getConnection();
         preparedStatement = connection.prepareStatement(SELECT_CLIENT_BY_ID);
-        preparedStatement.setInt(1,id);
+        preparedStatement.setInt(1, id);
         resultSet = preparedStatement.executeQuery();
         Client client = new Client();
         while (resultSet.next()) {
@@ -134,7 +133,7 @@ public class ClientDAOImpl implements ClientDAO {
         connection = ConnectDatabase.getConnection();
         List<Client> clients = new ArrayList<>();
         preparedStatement = connection.prepareStatement(SELECT_CLIENT_BY_NAME);
-        preparedStatement.setString(1,name);
+        preparedStatement.setString(1, name);
         resultSet = preparedStatement.executeQuery();
         Client client = new Client();
         while (resultSet.next()) {

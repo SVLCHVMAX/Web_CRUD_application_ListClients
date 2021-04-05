@@ -28,7 +28,7 @@ public class ConnectDatabase {
     }
 
     public static void closeConnection() throws SQLException {
-        if (connection!=null && !connection.isClosed()) {
+        if (connection != null && !connection.isClosed()) {
             connection.close();
         }
     }

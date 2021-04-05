@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Servlet для редактирования данных пользователя
+ */
+
 @WebServlet(name = "EditServlet")
 public class EditServlet extends HttpServlet {
     ClientDAOImpl clientDAO = new ClientDAOImpl();

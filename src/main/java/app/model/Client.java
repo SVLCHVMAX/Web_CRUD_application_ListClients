@@ -13,7 +13,6 @@ public class Client extends BaseModel {
     private String telNumber;
 
     public Client() {
-
     }
 
     public Client(String lastName, String name, String middleName, String email, String telNumber) {

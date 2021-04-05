@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Servlet для удаления пользователя
+ */
+
 @WebServlet(name = "DeleteServlet")
 public class DeleteServlet extends HttpServlet {
     ClientDAOImpl clientDAO = new ClientDAOImpl();

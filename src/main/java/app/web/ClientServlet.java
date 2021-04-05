@@ -13,8 +13,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Servlet для отображения данных одного пользователя после поиска
+ */
+
 public class ClientServlet extends HttpServlet {
     ClientDAOImpl clientDAO = new ClientDAOImpl();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Client> list = new ArrayList<>();
@@ -26,14 +31,9 @@ public class ClientServlet extends HttpServlet {
             throwables.printStackTrace();
         }
 
-        req.setAttribute("clientsList",list);
+        req.setAttribute("clientsList", list);
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/client.jsp");
-        requestDispatcher.forward(req,resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        requestDispatcher.forward(req, resp);
     }
 }

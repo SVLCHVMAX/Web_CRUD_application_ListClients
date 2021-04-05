@@ -18,7 +18,6 @@ public abstract class BaseModel {
     }
 
     public BaseModel() {
-
     }
 
     public BaseModel(int id) {
